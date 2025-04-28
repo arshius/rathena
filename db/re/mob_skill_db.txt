@@ -14966,3 +14966,4 @@
 20533,G_ILL_BAPHOMET_J@NPC_FIREATTACK,chase,186,3,1000,0,5000,yes,target,always,0,,,,,,19,
 20533,G_ILL_BAPHOMET_J@NPC_DARKSTRIKE,chase,340,4,1500,500,5000,no,target,always,0,,,,,,,
 20533,G_ILL_BAPHOMET_J@NPC_DARKCROSS,attack,338,3,300,0,5000,yes,target,always,0,,,,,,,
+
