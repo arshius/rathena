@@ -50,6 +50,26 @@ Header:
     Version: 3
 
 Body:
+    - Id: 101
+      Title: Introduction to the Professor
+    - Id: 102
+      Title: Looking for Instructors
+    - Id: 103
+      Title: Battle Instructor
+    - Id: 104
+      Title: Adept Adventurer
+    - Id: 105
+      Title: Attribute Expert
+    - Id: 106
+      Title: Find The Heaviest Things in Midgard
+    - Id: 107
+      Title: The Heaviest Things in Midgard
+    - Id: 108
+      Title: Dispensary Therapist
+    - Id: 109
+      Title: Therapist
+    - Id: 110
+      Title: Criatura Academy Principal
     - Id: 1000
       Title: Transcend
     - Id: 1001
@@ -13476,6 +13496,8 @@ Body:
       Title: Bathroom Ghost
     - Id: 60355
       Title: Bathroom Ghost
+    - Id: 60457
+      Title: Join the Eden Group!
     - Id: 62238
       Title: Midgardian Mercenary timer
       TimeLimit: +3h
