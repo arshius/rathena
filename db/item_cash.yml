@@ -31,7 +31,7 @@
 Header:
   Type: ITEM_CASH_DB
   Version: 1
-
+ 
 Footer:
   Imports:
     - Path: db/import/item_cash.yml

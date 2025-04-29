@@ -17,3 +17,9 @@
 //
 // Price:
 //    Item cost, in cash points (#CASHPOINTS).
+
+//=== CARDS / LIMITED ====
+2,4002,100
+2，4001,100
+3,4004,100
+3,4005,100

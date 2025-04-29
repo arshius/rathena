@@ -9,7 +9,12 @@
 //============================================================
 
 int_land,0,0	monster	Poring	2401,40,5000
+int_land,0,0	monster	Poring	1002,10,5000
 int_land01,0,0	monster	Poring	2401,40,5000
+int_land01,0,0	monster	Poring	1002,10,5000
 int_land02,0,0	monster	Poring	2401,40,5000
+int_land02,0,0	monster	Poring	1002,10,5000
 int_land03,0,0	monster	Poring	2401,40,5000
+int_land03,0,0	monster	Poring	1002,10,5000
 int_land04,0,0	monster	Poring	2401,40,5000
+int_land04,0,0	monster	Poring	1002,10,5000

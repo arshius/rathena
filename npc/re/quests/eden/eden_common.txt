@@ -116,7 +116,14 @@ moc_para01,27,35,5	script	Secretary Lime Evenor	4_F_EDEN_OFFICER,{
 					next;
 					mes "[Lime Evenor]";
 					mes "Hopefully you can do great work as an Eden's member.";
+					getitem 12439,2; //F_Battle_Manual
+					getitem 12215,15; //Blessing_10_Scroll
+					getitem 12216,15; //Inc_Agi_10_Scroll
+					getitem 12507,5; //E_WOB_Rune
 					getitem 22508,1; //Para_Team_Mark_
+					if (isbegin_quest(60457) == 1) {
+					  completequest 60457;
+					}
 					next;
 					break;
 				case 2:
