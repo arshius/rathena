@@ -9,7 +9,7 @@ root = true
 # Adjust character set
 [*]
 insert_final_newline = true
-trim_trailing_whitespace = true
+trim_trailing_whitespace = false
 charset = utf-8
 
 # Use tabs in source

@@ -2830,7 +2830,7 @@ iz_ac01,103,42,3	script	Late Student#1	4_F_CHNDOCTOR,{
 	mes "Are you new here, too? You'd better head up to the Great Hall and speak to the professor to check in for class.";
 	mes "His bark is worse than his bite... but I'd rather not get barked at!";
 	setquest 101;
-	close;
+	close;	
 
 OnInit:
 	questinfo( QTYPE_QUEST, QMARK_NONE, "Class == Job_Novice && !isbegin_quest(101) && isbegin_quest(4269) == 2" );
@@ -2847,7 +2847,7 @@ iz_ac01_d,103,42,5	duplicate(Late Student#1)	Late Student#1_d	4_F_CHNDOCTOR
 // - Introduction to mechanics.
 // -----------------------------------------------------------------------------
 iz_ac01,99,146,4	script	Prof Oldman#1	4_M_HUGRANFA,{
-
+	
 	if (!isbegin_quest(4269)) {
 		mes "[Prof. Oldman]";
 		mes "...";
@@ -2858,7 +2858,7 @@ iz_ac01,99,146,4	script	Prof Oldman#1	4_M_HUGRANFA,{
 		close;
 		end;
 	}
-
+	
 	if (isbegin_quest(101) < 1) {
 		mes "[Prof. Oldman]";
 		mes "The class is not open yet.";
@@ -2886,7 +2886,7 @@ iz_ac01,99,146,4	script	Prof Oldman#1	4_M_HUGRANFA,{
 		cutin "", 255;
 		end;
 	}
-
+	
 	if (isbegin_quest(102) < 1 && isbegin_quest(101) > 1) {
 		cutin "heri1.bmp", 1;
 		mes "[Prof. Oldman]";
@@ -2920,7 +2920,7 @@ iz_ac01,99,146,4	script	Prof Oldman#1	4_M_HUGRANFA,{
 			end;
 		}
 	}
-
+	
 	if (isbegin_quest(106) < 1 && isbegin_quest(102) > 1) {
 		cutin "heri1.bmp", 1;
 		mes "[Prof. Oldman]";
@@ -2952,7 +2952,7 @@ iz_ac01,99,146,4	script	Prof Oldman#1	4_M_HUGRANFA,{
 			end;
 		}
 	}
-
+	
 	if (isbegin_quest(108) < 1 && isbegin_quest(106) > 1) {
 		cutin "heri1.bmp", 1;
 		mes "[Prof. Oldman]";
@@ -2982,8 +2982,8 @@ iz_ac01,99,146,4	script	Prof Oldman#1	4_M_HUGRANFA,{
 			mes "It will become handy when you get injured while adventuring.";
 			close2;
 			cutin "", 255;
-			end;
-		}
+			end;	
+		}		
 		cutin "heri3.bmp", 1;
 		mes "[Prof. Oldman]";
 		mes "Haven't you go to meet the therapist?";
@@ -2992,7 +2992,7 @@ iz_ac01,99,146,4	script	Prof Oldman#1	4_M_HUGRANFA,{
 		cutin "", 255;
 		end;
 	}
-
+	
 	if (isbegin_quest(110) < 1 && isbegin_quest(108) > 1) {
 		cutin "heri2.bmp", 1;
 		mes "[Prof. Oldman]";
@@ -3014,7 +3014,7 @@ iz_ac01,99,146,4	script	Prof Oldman#1	4_M_HUGRANFA,{
 		cutin "", 255;
 		end;
 	}
-
+	
 	cutin "heri2.bmp", 1;
 	mes "[Prof. Oldman]";
 	mes "...";
@@ -3054,7 +3054,7 @@ iz_ac02,103,209,4	script	Academy Principal#1	4_F_MADAME,{
 		cutin "", 255;
 		end;
 	}
-
+	
 	if (isbegin_quest(110) < 1) {
 		cutin "ra_gwoman.bmp", 1;
 		mes "[Academy Principal]";
@@ -3086,7 +3086,7 @@ iz_ac02,103,209,4	script	Academy Principal#1	4_F_MADAME,{
 		cutin "", 255;
 		end;
 	}
-
+	
 	cutin "ra_gwoman2.bmp", 1;
 	mes "[Academy Principal]";
 	mes "...";
@@ -4571,11 +4571,11 @@ iz_ac01,147,50,3	script	Dacquoise#ac	4_COOK,{
 				mes "[Mille Feuille]";
 				mes "Ingredients- ^0000cd1 Clover, 1 Green Herb, 1 Red Herb^000000.";
 				next;
-				cutin "·ç³ªÆ½Ä«µå.bmp", 3;
+				cutin "�糪ƽī��.bmp", 3;
 				mes "[Dacquoise]";
 				mes "Clover and the Red Herb are dropped by Lunatic or Fabre monsters wandering everywhere on the field outside Izlude.";
 				next;
-				cutin "ÆÄºê¸£Ä«µå.bmp", 3;
+				cutin "�ĺ긣ī��.bmp", 3;
 				mes "[Eclaire]";
 				mes "Green Herbs are dropped by Fabres.";
 				next;
@@ -4597,11 +4597,11 @@ iz_ac01,147,50,3	script	Dacquoise#ac	4_COOK,{
 				mes "[Mille Feuille]";
 				mes "Ingredients are ^0000cd1 Apple & 2 Carrots^000000.";
 				next;
-				cutin "Æ÷¸µÄ«µå.bmp", 3;
+				cutin "����ī��.bmp", 3;
 				mes "[Dacquoise]";
 				mes "Apples are dropped by Porings bouncing around the field outside of Izlude.";
 				next;
-				cutin "·ç³ªÆ½Ä«µå.bmp", 3;
+				cutin "�糪ƽī��.bmp", 3;
 				mes "[Eclaire]";
 				mes "Carrots are given by Lunatics.";
 				next;
@@ -4623,15 +4623,15 @@ iz_ac01,147,50,3	script	Dacquoise#ac	4_COOK,{
 				mes "[Mille Feuille]";
 				mes "Ingredients are ^0000cd1 Jellopy, 1 Fluff, 1 Feather^000000.";
 				next;
-				cutin "Æ÷¸µÄ«µå.bmp", 3;
+				cutin "����ī��.bmp", 3;
 				mes "[Dacquoise]";
 				mes "Jellopy are dropped by Porings bouncing around the field of Izlude.";
 				next;
-				cutin "ÆÄºê¸£Ä«µå.bmp", 3;
+				cutin "�ĺ긣ī��.bmp", 3;
 				mes "[Eclaire]";
 				mes "Fluff can be received from Fabre or Lunatic.";
 				next;
-				cutin "·ç³ªÆ½Ä«µå.bmp", 3;
+				cutin "�糪ƽī��.bmp", 3;
 				mes "[Mille Feuille]";
 				mes "Feathers are dropped by Lunatics or Fabres.";
 				next;
@@ -4653,11 +4653,11 @@ iz_ac01,147,50,3	script	Dacquoise#ac	4_COOK,{
 				mes "[Mille Feuille]";
 				mes "Ingredients are-^0000cd 1 Apple & 1 Clover^000000.";
 				next;
-				cutin "Æ÷¸µÄ«µå.bmp", 3;
+				cutin "����ī��.bmp", 3;
 				mes "[Dacquoise]";
 				mes "Apple can be found in Porings in the field outside of Izlude.";
 				next;
-				cutin "·ç³ªÆ½Ä«µå.bmp", 3;
+				cutin "�糪ƽī��.bmp", 3;
 				mes "[Eclaire]";
 				mes "Clovers are dropped by Lunatics or Fabre in the field outside Izlude.";
 				next;
@@ -5742,7 +5742,6 @@ iz_ac01,95,46,5	script	Kafra Guide Trainer#ac	4_F_KAFRA1,{
 						end;
 					case 2:
 						cutin "", 255;
-					//warp "iz_ac02", 101, 36;
 						warp "iz_ac02", 207, 115;
 						end;
 					case 3:
@@ -13149,7 +13148,7 @@ izlude_d,153,126,1	duplicate(Refinery Owner Han#iz)	Refinery Owner Han#iz_d	4_M_
 		mes "This item cannot be refined.";
 		close;
 	}
-	// if (!getequipisidentify(.@part)) {// getequipisidentify command removed
+	// if (!getequipisidentify(.@part)) {// getequipisidentify command removed 
 		// mes "[Refining Machine Wagjak]";
 		// mes "^FF0000- error number 5555 -^000000";
 		// mes "This item has not yet been identified.";
