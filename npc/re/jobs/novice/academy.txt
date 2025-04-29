@@ -2067,6 +2067,13 @@ iz_ac01,59,43,3	script	Therapist#ac	4_M_6THPRIN1,{
 		mes "Please try it again after organizing the items.";
 		close;
 	}
+	if (isbegin_quest(108) == 1 && isbegin_quest(109) < 1) {
+		mes "[Therapist]";
+		mes "So, Professor old man sent you here to learn about first aid?";
+		mes "Good. Just talk to me when you are ready.";
+		setquest 109;
+		close;
+	}
 	mes "[Therapist]";
 	if (isbegin_quest(4269) == 2) {
 		mes "Are you a student?";
@@ -2598,6 +2605,13 @@ iz_ac01,100,39,5	script	Academy Receptionist#1	4_F_01,{
 		mes "Hello, " + strcharinfo(0) +".";
 		mes "How are you today?";
 		mes "I am in charge guiding you here in the Academy.";
+		if (!isbegin_quest(60457) && !callfunc("F_HasEdenGroupMark")) {
+			next;
+			mes "Oh, before I forgot, I want to tell you something.";
+			mes "There is an organization called eden group where you can hone your skill.";
+			mes "If you want to join them, You can ask their member in the city to take you to their hideout.";
+			setquest 60457;
+		}
 	} else {
 		mes "[Receptionist]";
 		mes "Welcome to our Academy. I am in charge with the guide and registration for Novice education courses.";
@@ -2781,6 +2795,7 @@ iz_ac01,100,39,5	script	Academy Receptionist#1	4_F_01,{
 
 OnInit:
 	questinfo( QTYPE_QUEST, QMARK_NONE, "Class == Job_Novice && !isbegin_quest(4269)" );
+	questinfo( QTYPE_QUEST, QMARK_NONE, "!isbegin_quest(60457) && isbegin_quest(4269) == 2" );
 	end;
 }
 
@@ -2788,6 +2803,306 @@ iz_ac01_a,100,39,5	duplicate(Academy Receptionist#1)	Academy Receptionist#1_a	4_
 iz_ac01_b,100,39,5	duplicate(Academy Receptionist#1)	Academy Receptionist#1_b	4_F_01
 iz_ac01_c,100,39,5	duplicate(Academy Receptionist#1)	Academy Receptionist#1_c	4_F_01
 iz_ac01_d,100,39,5	duplicate(Academy Receptionist#1)	Academy Receptionist#1_d	4_F_01
+
+
+// - Late Student
+// - Introduction to Professor.
+// -----------------------------------------------------------------------------
+iz_ac01,103,42,3	script	Late Student#1	4_F_CHNDOCTOR,{
+	if (!isbegin_quest(4269)) {
+		mes "[Late Student]";
+		mes "Oh gosh, oh gosh, I'm nearly late for class! I'd better get over there right now and check in.";
+		close;
+	}
+	if (isbegin_quest(101) == 1) {
+		mes "[Late Student]";
+		mes "You'd better head up to the Great Hall and speak to the professor to check in for class.";
+		close;
+	} else if (isbegin_quest(101) == 2){
+		mes "[Late Student]";
+		mes "...";
+		close;
+	}
+	mes "[Late Student]";
+	mes "Oh gosh, oh gosh, I'm nearly late for class! I'd better get over there right now and check in.";
+	next;
+	mes "[Late Student]";
+	mes "Are you new here, too? You'd better head up to the Great Hall and speak to the professor to check in for class.";
+	mes "His bark is worse than his bite... but I'd rather not get barked at!";
+	setquest 101;
+	close;
+
+OnInit:
+	questinfo( QTYPE_QUEST, QMARK_NONE, "Class == Job_Novice && !isbegin_quest(101) && isbegin_quest(4269) == 2" );
+	end;
+}
+
+iz_ac01_a,103,42,5	duplicate(Late Student#1)	Late Student#1_a	4_F_CHNDOCTOR
+iz_ac01_b,103,42,5	duplicate(Late Student#1)	Late Student#1_b	4_F_CHNDOCTOR
+iz_ac01_c,103,42,5	duplicate(Late Student#1)	Late Student#1_c	4_F_CHNDOCTOR
+iz_ac01_d,103,42,5	duplicate(Late Student#1)	Late Student#1_d	4_F_CHNDOCTOR
+
+
+// - Prof. Oldman
+// - Introduction to mechanics.
+// -----------------------------------------------------------------------------
+iz_ac01,99,146,4	script	Prof Oldman#1	4_M_HUGRANFA,{
+
+	if (!isbegin_quest(4269)) {
+		mes "[Prof. Oldman]";
+		mes "...";
+		mes "Are you lost?";
+		next;
+		mes "[Prof. Oldman]";
+		mes "You need to register first at the Academy entrance first before you can attend to class.";
+		close;
+		end;
+	}
+
+	if (isbegin_quest(101) < 1) {
+		mes "[Prof. Oldman]";
+		mes "The class is not open yet.";
+		mes "Please comeback later.";
+		close;
+		end;
+	} else if (isbegin_quest(101) == 1) {
+		cutin "heri3.bmp", 1;
+		mes "[Prof. Oldman]";
+		mes "Harumph! You were almost late today... er...";
+		cutin "", 255;
+		next;
+		cutin "heri1.bmp", 1;
+		mes "[Prof. Oldman]";
+		mes "You must be new. So I should welcome you to the class.";
+		cutin "", 255;
+		next;
+		cutin "heri2.bmp", 1;
+		mes "[Prof. Oldman]";
+		mes "I am Professor Lil Oldman and I've been teaching students here and there for over 50 years.";
+		mes "I am happy to teach you and other Novices here at the new Criatura Academy.";
+		mes "As long as you can get to class PROMPTLY.";
+		completequest 101;
+		close2;
+		cutin "", 255;
+		end;
+	}
+
+	if (isbegin_quest(102) < 1 && isbegin_quest(101) > 1) {
+		cutin "heri1.bmp", 1;
+		mes "[Prof. Oldman]";
+		mes "Anyhow, since you are new here, there are three people you must talk to as you get started!";
+		mes "First, go to the Armory next room down and left and speak to everyone.";
+		mes "They will have useful things to teach you.";
+		mes "Once you have done so, please come back to me.";
+		setquest 102;
+		close2;
+		cutin "", 255;
+		end;
+	} else if (isbegin_quest(102) == 1) {
+		if (!isbegin_quest(103) && !isbegin_quest(104) && !isbegin_quest(105)) {
+			cutin "heri1.bmp", 1;
+			mes "[Prof. Oldman]";
+			mes "Haven't you found all of the people that I told you to speak with?";
+			close2;
+			cutin "", 255;
+			end;
+		} else {
+			cutin "heri2.bmp", 1;
+			mes "[Prof. Oldman]";
+			mes "Ah, I see that you spoke with the instructors in the Armory.";
+			mes "You can pick up quests from them, which come in very handy.";
+			completequest 102;
+			erasequest 103;
+			erasequest 104;
+			erasequest 105;
+			close2;
+			cutin "", 255;
+			end;
+		}
+	}
+
+	if (isbegin_quest(106) < 1 && isbegin_quest(102) > 1) {
+		cutin "heri1.bmp", 1;
+		mes "[Prof. Oldman]";
+		mes "Oh, if you could, I would appreciate if you could pick up a book I need for a class from the Library.";
+		mes "It's called The Heaviest Things in Midgard. It will be on the shelf somewhere.";
+		setquest 106;
+		close2;
+		cutin "", 255;
+		end;
+	} else if (isbegin_quest(106) == 1) {
+		if (!isbegin_quest(107)) {
+			cutin "heri1.bmp", 1;
+			mes "[Prof. Oldman]";
+			mes "The Library is in the next room down and to the right from here.";
+			mes "I'm still grading papers, so I appreciate your assistance.";
+			completequest 106; // bypass library quest
+			close2;
+			cutin "", 255;
+			end;
+		} else {
+			cutin "heri2.bmp", 1;
+			mes "[Prof. Oldman]";
+			mes "Thanks for bringing back the book... though you look a little banged up";
+			completequest 106;
+			completequest 107;
+			erasequest 107;
+			close2;
+			cutin "", 255;
+			end;
+		}
+	}
+
+	if (isbegin_quest(108) < 1 && isbegin_quest(106) > 1) {
+		cutin "heri1.bmp", 1;
+		mes "[Prof. Oldman]";
+		mes "Maybe you should head down to the Dispensary and get that looked at.";
+		next;
+		mes "It's the southwest-most room. It's where injured or sick students go.";
+		mes "Talk to the therapist and get fixed up. Then come back here.";
+		setquest 108;
+		close2;
+		cutin "", 255;
+		end;
+	} else if (isbegin_quest(108) == 1) {
+		if (isbegin_quest(109) > 0 && getskilllv("NV_FIRSTAID")) {
+			cutin "heri2.bmp", 1;
+			mes "[Prof. Oldman]";
+			mes "Looking better already.";
+			completequest 108;
+			completequest 109;
+			erasequest 109;
+			close2;
+			cutin "", 255;
+			end;
+		} else if (isbegin_quest(109) == 1){
+			cutin "heri1.bmp", 1;
+			mes "[Prof. Oldman]";
+			mes "You should also learn to use First Aid from therapist.";
+			mes "It will become handy when you get injured while adventuring.";
+			close2;
+			cutin "", 255;
+			end;
+		}
+		cutin "heri3.bmp", 1;
+		mes "[Prof. Oldman]";
+		mes "Haven't you go to meet the therapist?";
+		mes "Hurry up before your wound get worse!";
+		close2;
+		cutin "", 255;
+		end;
+	}
+
+	if (isbegin_quest(110) < 1 && isbegin_quest(108) > 1) {
+		cutin "heri2.bmp", 1;
+		mes "[Prof. Oldman]";
+		mes "You've already been impressing many of the instructors here.";
+		mes "I'd like you to go and speak to the dean before you start your journey.";
+		next;
+		mes "Go up to the Principal's Office on the second floor past the classrooms.";
+		mes "The stairs are right next to the Receptionist's desk.";
+		setquest 110;
+		close2;
+		cutin "", 255;
+		end;
+	} else if (isbegin_quest(110) == 1) {
+		cutin "heri2.bmp", 1;
+		mes "[Prof. Oldman]";
+		mes "Go up to the Principal's Office on the second floor past the classrooms.";
+		mes "The stairs are right next to the Receptionist's desk.";
+		close2;
+		cutin "", 255;
+		end;
+	}
+
+	cutin "heri2.bmp", 1;
+	mes "[Prof. Oldman]";
+	mes "...";
+	close2;
+	cutin "", 255;
+	end;
+
+OnInit:
+	questinfo( QTYPE_QUEST, QMARK_NONE, "Class == Job_Novice && isbegin_quest(101) == 1 && isbegin_quest(4269) == 2" );
+	questinfo( QTYPE_QUEST, QMARK_NONE, "!isbegin_quest(102) && isbegin_quest(101) == 2" );
+	questinfo( QTYPE_QUEST, QMARK_NONE, "!isbegin_quest(106) && isbegin_quest(102) == 2" );
+	questinfo( QTYPE_QUEST, QMARK_NONE, "!isbegin_quest(108) && isbegin_quest(106) == 2" );
+	questinfo( QTYPE_QUEST, QMARK_NONE, "!isbegin_quest(110) && isbegin_quest(108) == 2" );
+	end;
+}
+
+iz_ac01_a,99,146,5	duplicate(Prof Oldman#1)	Prof Oldman#1_a	4_M_HUGRANFA
+iz_ac01_b,99,146,5	duplicate(Prof Oldman#1)	Prof Oldman#1_b	4_M_HUGRANFA
+iz_ac01_c,99,146,5	duplicate(Prof Oldman#1)	Prof Oldman#1_c	4_M_HUGRANFA
+iz_ac01_d,99,146,5	duplicate(Prof Oldman#1)	Prof Oldman#1_d	4_M_HUGRANFA
+
+
+// - Academy Principal
+// - Finsih quest.
+// -----------------------------------------------------------------------------
+iz_ac02,103,209,4	script	Academy Principal#1	4_F_MADAME,{
+
+	if (!isbegin_quest(4269)) {
+		cutin "ra_gwoman.bmp", 1;
+		mes "[Academy Principal]";
+		mes "...";
+		mes "Are you lost?";
+		next;
+		mes "[Academy Principal]";
+		mes "You need to register first at the Academy entrance first before you can attend to class.";
+		close2;
+		cutin "", 255;
+		end;
+	}
+
+	if (isbegin_quest(110) < 1) {
+		cutin "ra_gwoman.bmp", 1;
+		mes "[Academy Principal]";
+		mes "You are still not ready to graduate.";
+		mes "Please comeback later.";
+		close2;
+		cutin "", 255;
+		end;
+	} else if (isbegin_quest(110) == 1) {
+		cutin "ra_gwoman2.bmp", 1;
+		mes "[Academy Principal]";
+		mes "Welcome, "+strcharinfo(0)+". Hopefully you've been learning some useful information here at the Criatura Academy.";
+		mes "Professor Lil Oldman has seen some great potential in you.";
+		mes "I think you are about ready to make your steps out into the world.";
+		next;
+		mes "[Academy Principal]";
+		mes "When you get to your last job level for Novice, please go and speak with the Class Trainers to change to your first job!";
+		mes "Don't forget to speak to everyone outside as well. You can get some free enchants and other useful tips!";
+		next;
+		mes "[Academy Principal]";
+		mes "Now go out and start on your own adventure! (With the compliments of the Kafra Corporation.)";
+		getitem 569,100;// Novice_Potion
+		getitem 12323,50;// N_Fly_Wing
+		getitem 7059,20;// Cargo_Free_Ticket
+		getitem 7060,20;// Warp_Free_Ticket
+		getexp 750,0;
+		completequest 110;
+		close2;
+		cutin "", 255;
+		end;
+	}
+
+	cutin "ra_gwoman2.bmp", 1;
+	mes "[Academy Principal]";
+	mes "...";
+	close2;
+	cutin "", 255;
+
+OnInit:
+	questinfo( QTYPE_QUEST, QMARK_NONE, "Class == Job_Novice && isbegin_quest(110) == 1" );
+	end;
+}
+
+iz_ac02_a,103,209,5	duplicate(Academy Principal#1)	Academy Principal#1_a	4_F_MADAME
+iz_ac02_b,103,209,5	duplicate(Academy Principal#1)	Academy Principal#1_b	4_F_MADAME
+iz_ac02_c,103,209,5	duplicate(Academy Principal#1)	Academy Principal#1_c	4_F_MADAME
+iz_ac02_d,103,209,5	duplicate(Academy Principal#1)	Academy Principal#1_d	4_F_MADAME
+
 
 // - Trainer Mainz
 // - Teaches the player about Status Effects (poison, stun, etc).
@@ -3650,6 +3965,14 @@ izlude_d,115,181,5	duplicate(Shop Helper#iz)	Shop Helper#iz_d	4_F_KHELLISIA
 // - Teaches the player about Attributes.
 // -----------------------------------------------------------------------------
 iz_ac01,53,74,3	script	Attribute Expert#ac	1_M_WIZARD,{
+	if (isbegin_quest(102) == 1 && isbegin_quest(105) < 1) {
+		mes "[Attribute Expert]";
+		mes "So, Professor old man sent you here to learn from me?";
+		mes "Good. Just talk to me when you are ready.";
+		setquest 105;
+		completequest 105;
+		close;
+	}
 	mes "[Attribute Expert]";
 	mes "Are you a new student? Ask me anything if you have questions about atttribute. I am an attribute expert.";
 	next;
@@ -4248,11 +4571,11 @@ iz_ac01,147,50,3	script	Dacquoise#ac	4_COOK,{
 				mes "[Mille Feuille]";
 				mes "Ingredients- ^0000cd1 Clover, 1 Green Herb, 1 Red Herb^000000.";
 				next;
-				cutin "�糪ƽī��.bmp", 3;
+				cutin "·ç³ªÆ½Ä«µå.bmp", 3;
 				mes "[Dacquoise]";
 				mes "Clover and the Red Herb are dropped by Lunatic or Fabre monsters wandering everywhere on the field outside Izlude.";
 				next;
-				cutin "�ĺ긣ī��.bmp", 3;
+				cutin "ÆÄºê¸£Ä«µå.bmp", 3;
 				mes "[Eclaire]";
 				mes "Green Herbs are dropped by Fabres.";
 				next;
@@ -4274,11 +4597,11 @@ iz_ac01,147,50,3	script	Dacquoise#ac	4_COOK,{
 				mes "[Mille Feuille]";
 				mes "Ingredients are ^0000cd1 Apple & 2 Carrots^000000.";
 				next;
-				cutin "����ī��.bmp", 3;
+				cutin "Æ÷¸µÄ«µå.bmp", 3;
 				mes "[Dacquoise]";
 				mes "Apples are dropped by Porings bouncing around the field outside of Izlude.";
 				next;
-				cutin "�糪ƽī��.bmp", 3;
+				cutin "·ç³ªÆ½Ä«µå.bmp", 3;
 				mes "[Eclaire]";
 				mes "Carrots are given by Lunatics.";
 				next;
@@ -4300,15 +4623,15 @@ iz_ac01,147,50,3	script	Dacquoise#ac	4_COOK,{
 				mes "[Mille Feuille]";
 				mes "Ingredients are ^0000cd1 Jellopy, 1 Fluff, 1 Feather^000000.";
 				next;
-				cutin "����ī��.bmp", 3;
+				cutin "Æ÷¸µÄ«µå.bmp", 3;
 				mes "[Dacquoise]";
 				mes "Jellopy are dropped by Porings bouncing around the field of Izlude.";
 				next;
-				cutin "�ĺ긣ī��.bmp", 3;
+				cutin "ÆÄºê¸£Ä«µå.bmp", 3;
 				mes "[Eclaire]";
 				mes "Fluff can be received from Fabre or Lunatic.";
 				next;
-				cutin "�糪ƽī��.bmp", 3;
+				cutin "·ç³ªÆ½Ä«µå.bmp", 3;
 				mes "[Mille Feuille]";
 				mes "Feathers are dropped by Lunatics or Fabres.";
 				next;
@@ -4330,11 +4653,11 @@ iz_ac01,147,50,3	script	Dacquoise#ac	4_COOK,{
 				mes "[Mille Feuille]";
 				mes "Ingredients are-^0000cd 1 Apple & 1 Clover^000000.";
 				next;
-				cutin "����ī��.bmp", 3;
+				cutin "Æ÷¸µÄ«µå.bmp", 3;
 				mes "[Dacquoise]";
 				mes "Apple can be found in Porings in the field outside of Izlude.";
 				next;
-				cutin "�糪ƽī��.bmp", 3;
+				cutin "·ç³ªÆ½Ä«µå.bmp", 3;
 				mes "[Eclaire]";
 				mes "Clovers are dropped by Lunatics or Fabre in the field outside Izlude.";
 				next;
@@ -4493,6 +4816,14 @@ iz_ac01,59,83,3	script	Battle Instructor#08	4_M_NOV_HUNT,{
 	if (!checkweight(1201,1) || (MaxWeight - Weight) < 2000) {
 		mes "- You have too many items.";
 		mes "- Clear inventory and try again.";
+		close;
+	}
+	if (isbegin_quest(102) == 1 && isbegin_quest(103) < 1) {
+		mes "[Battle Instructor Subino]";
+		mes "So, Professor old man sent you here to learn from me?";
+		mes "Good. Just talk to me when you are ready.";
+		setquest 103;
+		completequest 103;
 		close;
 	}
 	if (Class == Job_Novice) {
@@ -4729,6 +5060,14 @@ iz_ac01_d,59,83,3	duplicate(Battle Instructor#08)	Battle Instructor#08d	4_M_NOV_
 // - Teaches the player about Pets.
 // -----------------------------------------------------------------------------
 iz_ac01,45,80,5	script	Adept Adventurer#ac	4_M_JOB_BLACKSMITH,{
+	if (isbegin_quest(102) == 1 && isbegin_quest(104) < 1) {
+		mes "[Adept Adventurer]";
+		mes "So, Professor old man sent you here to learn from me?";
+		mes "Good. Just talk to me when you are ready.";
+		setquest 104;
+		completequest 104;
+		close;
+	}
 	if (isbegin_quest(2298) > 1) {
 		mes "[Adept Adventurer]";
 		mes "Any questions about getting a monster to become a pet?";
@@ -5403,7 +5742,8 @@ iz_ac01,95,46,5	script	Kafra Guide Trainer#ac	4_F_KAFRA1,{
 						end;
 					case 2:
 						cutin "", 255;
-						warp "iz_ac02", 101, 36;
+					//warp "iz_ac02", 101, 36;
+						warp "iz_ac02", 207, 115;
 						end;
 					case 3:
 						mes "[Kafra Guide Trainer]";
@@ -12809,7 +13149,7 @@ izlude_d,153,126,1	duplicate(Refinery Owner Han#iz)	Refinery Owner Han#iz_d	4_M_
 		mes "This item cannot be refined.";
 		close;
 	}
-	// if (!getequipisidentify(.@part)) {// getequipisidentify command removed 
+	// if (!getequipisidentify(.@part)) {// getequipisidentify command removed
 		// mes "[Refining Machine Wagjak]";
 		// mes "^FF0000- error number 5555 -^000000";
 		// mes "This item has not yet been identified.";
@@ -14125,8 +14465,25 @@ izlude,108,139,7	script	Enchanter Almond J#iz	4_CAT_SAILOR3,{
 		close;
 	}
 	setarray .@enchantments[1],4700,4701,4702,4730,4731,4732,4740,4741,4742,4710,4711,4712,4720,4721,4722,4750,4751,4752,4760,4766,4764,4786,4791,4795,4800,4811,4832,4818,4815;
-	.@enchant1 = rand(1,35);
-	.@enchant2 = rand(1,35);
+	.@rng = rand(1,25);
+	//.@enchant3 = 0;
+	//.@enchant4 = 0;
+	if (.@rng > 10) {
+		setarray .@enchantments[1],4704,4709,4734,4739,4744,4749,4714,4719,4724,4729,4754,4759,4761,4767,4765,4787,4792,4796,4797,4801,4802,4810,4809,4808,4833,4817,4814,4813,4812;
+		.@enchant1 = rand(1,29);
+		.@enchant2 = rand(1,29);
+		if (.@rng > 20 ) {
+			.@enchant3 = rand(1,29);
+			.@enchant4 = rand(1,29);
+		}
+	} else {
+		.@enchant1 = rand(1,35);
+		.@enchant2 = rand(1,35);
+		if (.@rng > 10) {
+			.@enchant3 = rand(1,35);
+			.@enchant4 = rand(1,35);
+		}
+	}
 
 	if (.@enchant1 > 29)
 		.@enchant1 = 0;
@@ -14138,18 +14495,32 @@ izlude,108,139,7	script	Enchanter Almond J#iz	4_CAT_SAILOR3,{
 	else
 		.@enchant2 = .@enchantments[.@enchant2];
 
+	if (.@equip_card[1] < 4700 && .@equip_card[1] > 4833)
+		.@enchant3 = .@equip_card[1];
+	else if (.@enchant3 < 1 && .@enchant3 > 29)
+		.@enchant3 = 0;
+	else
+		.@enchant3 = .@enchantments[.@enchant3];
+
+	if (.@equip_card[0] < 4700 && .@equip_card[0] > 4833)
+		.@enchant4 = .@equip_card[0];
+	else if (.@enchant4 < 1 && .@enchant4 > 29)
+		.@enchant4 = 0;
+	else
+		.@enchant4 = .@enchantments[.@enchant4];
+
 	mes "[Almond J]";
 	mes "It is a good weapon Then!! Let's start the hidden enchant!!";
 	next;
 	specialeffect2 EF_REPAIRWEAPON;
-	progressbar "ffff00", 3;
+	progressbar "ffff00", 2;
 
 	// anti-hack
 	if (callfunc("F_IsEquipIDHack", .@part, .@equip) || callfunc("F_IsEquipCardHack", .@part, .@equip_card[0], .@equip_card[1], .@equip_card[2], .@equip_card[3]) || callfunc("F_IsEquipRefineHack", .@part, .@equip_refine))
 		close;
 
 	delequip .@part;
-	getitem2 .@equip,1,1,.@equip_refine,0,.@equip_card[0],.@equip_card[1],.@enchant1,.@enchant2;
+	getitem2 .@equip,1,1,.@equip_refine,0,.@enchant4,.@enchant3,.@enchant2,.@enchant1;
 	mes "[Almond J]";
 	mes "Zzazanzn!! Completed!!";
 	mes "As I'm too excited, I can't check the options. Please check it yourself.";
