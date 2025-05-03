@@ -114,6 +114,30 @@ prt_fild08,336,113,40,40	monster	Pupa	1008,20,10000
 prt_fild08,330,269,40,40	monster	Little Poring	2398,20,10000
 
 //==================================================
+// prt_fild08 - Prontera Field Duplicate
+//==================================================
+prt_fild08a,0,0	monster	Poring	1002,110,5000
+prt_fild08a,0,0	monster	Lunatic	1063,100,5000
+prt_fild08a,0,0	monster	Fabre	1007,100,5000
+prt_fild08a,0,0	monster	Little Poring	2398,30,50000
+prt_fild08a,0,0	monster	Pupa	1008,20,10000
+prt_fild08b,0,0	monster	Poring	1002,110,5000
+prt_fild08b,0,0	monster	Lunatic	1063,100,5000
+prt_fild08b,0,0	monster	Fabre	1007,100,5000
+prt_fild08b,0,0	monster	Little Poring	2398,30,50000
+prt_fild08b,0,0	monster	Pupa	1008,20,10000
+prt_fild08c,0,0	monster	Poring	1002,110,5000
+prt_fild08c,0,0	monster	Lunatic	1063,100,5000
+prt_fild08c,0,0	monster	Fabre	1007,100,5000
+prt_fild08c,0,0	monster	Little Poring	2398,30,50000
+prt_fild08c,0,0	monster	Pupa	1008,20,10000
+prt_fild08d,0,0	monster	Poring	1002,110,5000
+prt_fild08d,0,0	monster	Lunatic	1063,100,5000
+prt_fild08d,0,0	monster	Fabre	1007,100,5000
+prt_fild08d,0,0	monster	Little Poring	2398,30,50000
+prt_fild08d,0,0	monster	Pupa	1008,20,10000
+
+//==================================================
 // prt_fild09 - Prontera Field
 //==================================================
 prt_fild09,0,0	monster	Magnolia	1138,212,5000
