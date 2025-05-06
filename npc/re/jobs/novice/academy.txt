@@ -2837,10 +2837,10 @@ OnInit:
 	end;
 }
 
-iz_ac01_a,103,42,5	duplicate(Late Student#1)	Late Student#1_a	4_F_CHNDOCTOR
-iz_ac01_b,103,42,5	duplicate(Late Student#1)	Late Student#1_b	4_F_CHNDOCTOR
-iz_ac01_c,103,42,5	duplicate(Late Student#1)	Late Student#1_c	4_F_CHNDOCTOR
-iz_ac01_d,103,42,5	duplicate(Late Student#1)	Late Student#1_d	4_F_CHNDOCTOR
+iz_ac01_a,103,42,3	duplicate(Late Student#1)	Late Student#1_a	4_F_CHNDOCTOR
+iz_ac01_b,103,42,3	duplicate(Late Student#1)	Late Student#1_b	4_F_CHNDOCTOR
+iz_ac01_c,103,42,3	duplicate(Late Student#1)	Late Student#1_c	4_F_CHNDOCTOR
+iz_ac01_d,103,42,3	duplicate(Late Student#1)	Late Student#1_d	4_F_CHNDOCTOR
 
 
 // - Prof. Oldman
@@ -3031,10 +3031,10 @@ OnInit:
 	end;
 }
 
-iz_ac01_a,99,146,5	duplicate(Prof Oldman#1)	Prof Oldman#1_a	4_M_HUGRANFA
-iz_ac01_b,99,146,5	duplicate(Prof Oldman#1)	Prof Oldman#1_b	4_M_HUGRANFA
-iz_ac01_c,99,146,5	duplicate(Prof Oldman#1)	Prof Oldman#1_c	4_M_HUGRANFA
-iz_ac01_d,99,146,5	duplicate(Prof Oldman#1)	Prof Oldman#1_d	4_M_HUGRANFA
+iz_ac01_a,99,146,4	duplicate(Prof Oldman#1)	Prof Oldman#1_a	4_M_HUGRANFA
+iz_ac01_b,99,146,4	duplicate(Prof Oldman#1)	Prof Oldman#1_b	4_M_HUGRANFA
+iz_ac01_c,99,146,4	duplicate(Prof Oldman#1)	Prof Oldman#1_c	4_M_HUGRANFA
+iz_ac01_d,99,146,4	duplicate(Prof Oldman#1)	Prof Oldman#1_d	4_M_HUGRANFA
 
 
 // - Academy Principal
@@ -3098,10 +3098,10 @@ OnInit:
 	end;
 }
 
-iz_ac02_a,103,209,5	duplicate(Academy Principal#1)	Academy Principal#1_a	4_F_MADAME
-iz_ac02_b,103,209,5	duplicate(Academy Principal#1)	Academy Principal#1_b	4_F_MADAME
-iz_ac02_c,103,209,5	duplicate(Academy Principal#1)	Academy Principal#1_c	4_F_MADAME
-iz_ac02_d,103,209,5	duplicate(Academy Principal#1)	Academy Principal#1_d	4_F_MADAME
+iz_ac02_a,103,209,4	duplicate(Academy Principal#1)	Academy Principal#1_a	4_F_MADAME
+iz_ac02_b,103,209,4	duplicate(Academy Principal#1)	Academy Principal#1_b	4_F_MADAME
+iz_ac02_c,103,209,4	duplicate(Academy Principal#1)	Academy Principal#1_c	4_F_MADAME
+iz_ac02_d,103,209,4	duplicate(Academy Principal#1)	Academy Principal#1_d	4_F_MADAME
 
 
 // - Trainer Mainz
@@ -5547,6 +5547,24 @@ new_1-3,99,169,3	script	Friendly Poring#ac	4_PORING,{
 			setquest 2297;
 			close;
 		} else {
+			if (countitem(12846) == 0) {
+				mes "[Poring]";
+				mes "Ello' mate. Were you successful? Where are the lil' bleeders?";
+				next;
+				select("I ran out of ^3131FFunripe apple^000000.");
+				mes "[Poring]";
+				mes "Really??";
+				mes "How can you be so unlucky.";
+				next;
+				emotion ET_CRY;
+				mes "[Poring]";
+				mes "I will give you another 5.";
+				next;
+				mes "[Poring]";
+				mes "Please becareful when using it!";
+				getitem 12846,5;// Little_Unripe_Apple
+				close;
+			}
 			mes "[Poring]";
 			mes "^3131FFDouble click the unripe apple^000000 that I gave you and ^3131FFselect^000000 your preferred ^3131FFLittle Poring^000000.";
 			cutin "pet_ex_01.bmp", 3;
