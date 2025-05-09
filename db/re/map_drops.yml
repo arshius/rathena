@@ -22,7 +22,7 @@
 # Map Drop Settings
 #
 ###########################################################################
-# - Map                             Name of the map.
+# - Map                             Name of the map. (use ANY for all maps [Hyroshima])
 #   GlobalDrops                     Drops for all monsters on this map. (Default: empty)
 #                                   These drops are unaffected by server drop rate and cannot be stolen.
 #     - Index                       Unique index of the drop.
@@ -44,6 +44,17 @@ Header:
     Version: 2
 
 Body:
+    - Map: ANY
+      GlobalDrops:
+          - Index: 0
+            Item: 10CP_Ticket
+            Rate: 1000
+          - Index: 1
+            Item: 50CP_Ticket
+            Rate: 200
+          - Index: 2
+            Item: 100CP_Ticket
+            Rate: 100
     - Map: tur_d03_i
       SpecificDrops:
           - Monster: ILL_ASSULTER
