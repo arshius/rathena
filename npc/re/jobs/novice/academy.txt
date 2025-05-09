@@ -3080,6 +3080,7 @@ iz_ac02,103,209,4	script	Academy Principal#1	4_F_MADAME,{
 		getitem 12323,50;// N_Fly_Wing
 		getitem 7059,20;// Cargo_Free_Ticket
 		getitem 7060,20;// Warp_Free_Ticket
+		getitem 52130,5;// 10CP_Ticket
 		getexp 750,0;
 		completequest 110;
 		close2;

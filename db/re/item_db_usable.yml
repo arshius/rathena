@@ -66414,6 +66414,48 @@ Body:
       Container: true
     Script: |
       getgroupitem(IG_BIO_REACTANT_BOX);
+  - Id: 52130
+    AegisName: 10CP_Ticket
+    Name: "10 Cash Points Ticket"
+    Type: Usable
+    Weight: 10
+    Trade:
+      NoDrop: true
+      NoTrade: true
+      NoCart: true
+      NoGuildStorage: true
+      NoAuction: true
+    Script: |
+      set #CASHPOINTS,#CASHPOINTS+10;
+      dispbottom "You gained [ 10 Cash Points ]. Enjoy!";
+  - Id: 52131
+    AegisName: 50CP_Ticket
+    Name: "50 Cash Points Ticket"
+    Type: Usable
+    Weight: 10
+    Trade:
+      NoDrop: true
+      NoTrade: true
+      NoCart: true
+      NoGuildStorage: true
+      NoAuction: true
+    Script: |
+      set #CASHPOINTS,#CASHPOINTS+50;
+      dispbottom "You gained [ 50 Cash Points ]. Enjoy!";
+  - Id: 52132
+    AegisName: 100CP_Ticket
+    Name: "100 Cash Points Ticket"
+    Type: Usable
+    Weight: 10
+    Trade:
+      NoDrop: true
+      NoTrade: true
+      NoCart: true
+      NoGuildStorage: true
+      NoAuction: true
+    Script: |
+      set #CASHPOINTS,#CASHPOINTS+100;
+      dispbottom "You gained [ 100 Cash Points ]. Enjoy!";
   - Id: 100000
     AegisName: IDTest_Special
     Name: IDTest Special
