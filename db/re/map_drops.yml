@@ -48,13 +48,13 @@ Body:
       GlobalDrops:
           - Index: 0
             Item: 10CP_Ticket
-            Rate: 1000
+            Rate: 200
           - Index: 1
             Item: 50CP_Ticket
-            Rate: 200
+            Rate: 40
           - Index: 2
             Item: 100CP_Ticket
-            Rate: 100
+            Rate: 20
     - Map: tur_d03_i
       SpecificDrops:
           - Monster: ILL_ASSULTER
@@ -2701,4 +2701,3 @@ Body:
                 - Index: 2
                   Item: Labyrinth_Box_IL
                   Rate: 5
-
