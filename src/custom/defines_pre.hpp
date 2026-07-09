@@ -11,7 +11,7 @@
 
 // 4CrAM Custom Settings
 // A 2021-11-17aRagexeRE of newer client is recommended.
-//#define PACKETVER 20211117
+#define PACKETVER 20250416
 //#define PACKETVER_RE
 
 //Any Map (map_drops) [Hyroshima]
