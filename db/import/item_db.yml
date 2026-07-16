@@ -187,3 +187,75 @@ Body:
     Script: |
       set #CASHPOINTS,#CASHPOINTS+1000;
       dispbottom "You gained [ 1000 Cash Points ]. Enjoy!";
+  - Id: 53130
+    AegisName: 1D_VIP_Pass
+    Name: "1D VIP Pass"
+    Type: Usable
+    Weight: 10
+    Trade:
+      NoDrop: true
+      NoTrade: true
+      NoCart: true
+      NoGuildStorage: true
+      NoAuction: true
+    Script: |
+      .@vip_left = vip_status(3);
+      atcommand "@vip +1d";
+      if (.@vip_left > 0)
+        dispbottom "You have extended your membership in the VIP group by 1 day. Enjoy!";
+      else
+        dispbottom "You have joined the VIP group for 1 day. Enjoy!";
+  - Id: 53131
+    AegisName: 7D_VIP_Pass
+    Name: "7D VIP Pass"
+    Type: Usable
+    Weight: 10
+    Trade:
+      NoDrop: true
+      NoTrade: true
+      NoCart: true
+      NoGuildStorage: true
+      NoAuction: true
+    Script: |
+      .@vip_left = vip_status(3);
+      atcommand "@vip +7d";
+      if (.@vip_left > 0)
+        dispbottom "You have extended your membership in the VIP group by 7 days. Enjoy!";
+      else
+        dispbottom "You have joined the VIP group for 7 days. Enjoy!";
+  - Id: 53132
+    AegisName: 30D_VIP_Pass
+    Name: "30D VIP Pass"
+    Type: Usable
+    Weight: 10
+    Trade:
+      NoDrop: true
+      NoTrade: true
+      NoCart: true
+      NoGuildStorage: true
+      NoAuction: true
+    Script: |
+      .@vip_left = vip_status(3);
+      atcommand "@vip +30d";
+      if (.@vip_left > 0)
+        dispbottom "You have extended your membership in the VIP group by 30 days. Enjoy!";
+      else
+        dispbottom "You have joined the VIP group for 30 days. Enjoy!";
+  - Id: 53133
+    AegisName: 365D_VIP_Pass
+    Name: "365D VIP Pass"
+    Type: Usable
+    Weight: 10
+    Trade:
+      NoDrop: true
+      NoTrade: true
+      NoCart: true
+      NoGuildStorage: true
+      NoAuction: true
+    Script: |
+      .@vip_left = vip_status(3);
+      atcommand "@vip +365d";
+      if (.@vip_left > 0)
+        dispbottom "You have extended your membership in the VIP group by 365 days. Enjoy!";
+      else
+        dispbottom "You have joined the VIP group for 365 days. Enjoy!";

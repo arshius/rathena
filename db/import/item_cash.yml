@@ -33,6 +33,16 @@ Header:
   Version: 1
 
 Body:
+  - Tab: Hot
+    Items:
+      - Item: 1D_VIP_Pass
+        Price: 10
+      - Item: 7D_VIP_Pass
+        Price: 50
+      - Item: 30D_VIP_Pass
+        Price: 250
+      - Item: 365D_VIP_Pass
+        Price: 1500
   - Tab: Permanent
     Items:
       - Item: S_Beginner_Shoes
