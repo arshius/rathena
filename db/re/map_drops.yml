@@ -44,17 +44,6 @@ Header:
     Version: 2
 
 Body:
-    - Map: ANY
-      GlobalDrops:
-          - Index: 0
-            Item: 10CP_Ticket
-            Rate: 200
-          - Index: 1
-            Item: 50CP_Ticket
-            Rate: 40
-          - Index: 2
-            Item: 100CP_Ticket
-            Rate: 20
     - Map: tur_d03_i
       SpecificDrops:
           - Monster: ILL_ASSULTER

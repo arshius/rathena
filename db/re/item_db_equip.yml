@@ -47854,6 +47854,9 @@ Body:
       NoAuction: true
     Script: |
       bonus2 bExpAddClass,Class_All,100;
+      if (vip_status(VIP_STATUS_ACTIVE)) {
+         bonus2 bExpAddClass,Class_All,50;
+      }
   - Id: 5395
     AegisName: Tiraya_Bonnet
     Name: Striped Hat
@@ -101491,6 +101494,8 @@ Body:
     ArmorLevel: 1
     EquipLevelMin: 1
     View: 45
+    Script: |
+      bonus2 bExpAddRace,RC_All,30;
   - Id: 19631
     AegisName: C_Boss_Hat
     Name: Costume Poring Fedora Hat
@@ -169613,6 +169618,8 @@ Body:
     ArmorLevel: 1
     View: 2284
     Script: |
+      bonus2 bExpAddRace,RC_All,20;
+      bonus bAllStats,2;
       hateffect HAT_EF_EFST_C_20TH_ANNIVERSARY_HAT,true;
     UnEquipScript: |
       hateffect HAT_EF_EFST_C_20TH_ANNIVERSARY_HAT,false;
@@ -189209,7 +189216,7 @@ Body:
     AegisName: Red_Bat_US
     Name: Bat Von Blood
     Type: Armor
-    Weight: 200
+    Weight: 20
     Locations:
       Head_Low: true
     ArmorLevel: 1
@@ -213616,6 +213623,9 @@ Body:
       Costume_Garment: true
     ArmorLevel: 1
     View: 136
+    Script: |
+      bonus2 bExpAddRace,RC_All,20;
+      bonus bAllStats,2;
   - Id: 480199
     AegisName: C_Guardian_Wingdeco
     Name: Costume Wings of Astaroth
@@ -213648,6 +213658,9 @@ Body:
       Costume_Garment: true
     ArmorLevel: 1
     View: 140
+    Script: |
+      bonus2 bExpAddRace,RC_All,20;
+      bonus bAllStats,2;
   - Id: 480203
     AegisName: C_Magic_Circle_BL
     Name: Costume Blue Magic Circle    # !todo check english name

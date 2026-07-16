@@ -15,7 +15,7 @@
 	mes "Vending Machine for Novices.";
 	mes "There are many buttons.";
 	next;
-	switch( select( "Manual", "Trade " + .@storage_ticket_name$, "Trade Novice equipments" ) ) {
+	switch( select( "Manual", "Trade " + .@storage_ticket_name$, "Trade Novice equipments", "Trade Job manuals" ) ) {
 	case 1:
 		mes "[Exchange " + .@storage_ticket_name$ + "]";
 		mes "4 " + .@storage_ticket_name$ + " can be exchanged into 1 Free Ticket for Warp, Airship or the Cart Service, or 1 Free Ticket for Peco Ride, 15 Novice Fly Wing, 5 Novice Butterfly Wing, 30 Novice Potion.";
@@ -25,6 +25,9 @@
 		next;
 		mes "[Trade Novice Gears]";
 		mes "Novice Eggshell can be exchanged into Criatura Hair Coupon for changing your hairstyle.";
+		next;
+		mes "[Trade Job Manuals]";
+		mes "All Job Manuals from Criatura Academy can be exchanged into 4 " + .@storage_ticket_name$ + ".";
 		close;
 	case 2:
 		setarray .@exchange[0],
@@ -81,6 +84,40 @@
 			case 5055:	// Novice_Egg_Cap
 				delitem .@list[.@i], .@count;
 				getitem 6593,.@count;	// Cryptura_Hair_Coupon
+				break;
+			}
+		}
+		close;
+	case 4:
+		mes "Exchange all job manuals into coupons.";
+		mes "Select continue to proceed.";
+		next;
+		if (select( "Continue", "Cancel." ) == 2) {
+			mes "The trade was interrupted.";
+			close;
+		}
+		mes "Exchanging all manuals into coupons.";
+		setarray .@list[0],2819,2820,2821,2822,2823,2824,2940,2941,2942;
+		.@size = getarraysize(.@list);
+		
+		for ( .@i = 0, .@i < .@size; .@i++ ) {
+			.@count = countitem(.@list[.@i]);	// note: maybe check if equipped items are skipped
+			if (.@count < 1)
+				continue;
+			switch(.@list[.@i]) {
+			case 2819:	// Swordman Manual
+			case 2820:	// Thief Manual
+			case 2821:	// Acolyte Manual
+			case 2822:	// Archer Manual
+			case 2823:	// Merchant Manual
+			case 2824:  // Mage Manual
+			case 2940:  // Ninja Manual
+			case 2941:  // Gunslinger Manual
+			case 2942:  // Taekwon Manual
+				delitem .@list[.@i], .@count;
+				getitem .@storage_ticket,(2*.@count);	// Cargo_Free_Ticket
+				getitem 7060,(2*.@count);	// Warp_Free_Ticket
+		        getitem 52128,.@count;   // 1CP_Ticket
 				break;
 			}
 		}

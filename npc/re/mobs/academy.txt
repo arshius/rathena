@@ -10,29 +10,51 @@
 //= 1.0 First version.
 //============================================================
 
+
 //==================================================
-// prt_fild08 - Prontera Field 
+// prt_fild08 - Prontera Field Duplicate
 //==================================================
-prt_fild08,0,0	monster	Poring	1002,110,5000
-prt_fild08,0,0	monster	Lunatic	1063,100,5000
-prt_fild08,0,0	monster	Fabre	1007,100,5000
-prt_fild08,0,0	monster	Little Poring	2398,30,50000
-prt_fild08a,0,0	monster	Poring	1002,110,5000
-prt_fild08a,0,0	monster	Lunatic	1063,100,5000
-prt_fild08a,0,0	monster	Fabre	1007,100,5000
-prt_fild08a,0,0	monster	Little Poring	2398,30,50000
-prt_fild08b,0,0	monster	Poring	1002,110,5000
-prt_fild08b,0,0	monster	Lunatic	1063,100,5000
-prt_fild08b,0,0	monster	Fabre	1007,100,5000
-prt_fild08b,0,0	monster	Little Poring	2398,30,50000
-prt_fild08c,0,0	monster	Poring	1002,110,5000
-prt_fild08c,0,0	monster	Lunatic	1063,100,5000
-prt_fild08c,0,0	monster	Fabre	1007,100,5000
-prt_fild08c,0,0	monster	Little Poring	2398,30,50000
-prt_fild08d,0,0	monster	Poring	1002,110,5000
-prt_fild08d,0,0	monster	Lunatic	1063,100,5000
-prt_fild08d,0,0	monster	Fabre	1007,100,5000
-prt_fild08d,0,0	monster	Little Poring	2398,30,50000
+prt_fild08a,0,0	monster	Poring	1002,27,500
+prt_fild08a,0,0	monster	Lunatic	1063,37,500
+prt_fild08a,0,0	monster	Fabre	1007,37,500
+prt_fild08a,0,0	monster	Little Poring	2398,20,50000
+prt_fild08a,0,0	monster	Pupa	1008,20,1000
+prt_fild08a,0,0	monster	Solid Lunatic	2770,1,180000
+prt_fild08a,0,0	monster	Poring Ringleader	2696,1,180000
+prt_fild08a,0,0	monster	Furious Poring	2697,1,180000
+prt_fild08a,0,0	monster	Elusive Poring	2698,1,180000
+prt_fild08a,0,0	monster	Swift Poring	2699,1,180000
+prt_fild08b,0,0	monster	Poring	1002,27,500
+prt_fild08b,0,0	monster	Lunatic	1063,37,500
+prt_fild08b,0,0	monster	Fabre	1007,37,500
+prt_fild08b,0,0	monster	Little Poring	2398,20,50000
+prt_fild08b,0,0	monster	Pupa	1008,20,1000
+prt_fild08b,0,0	monster	Solid Lunatic	2770,1,180000
+prt_fild08b,0,0	monster	Poring Ringleader	2696,1,180000
+prt_fild08b,0,0	monster	Furious Poring	2697,1,180000
+prt_fild08b,0,0	monster	Elusive Poring	2698,1,180000
+prt_fild08b,0,0	monster	Swift Poring	2699,1,180000
+prt_fild08c,0,0	monster	Poring	1002,27,500
+prt_fild08c,0,0	monster	Lunatic	1063,37,500
+prt_fild08c,0,0	monster	Fabre	1007,37,500
+prt_fild08c,0,0	monster	Little Poring	2398,20,50000
+prt_fild08c,0,0	monster	Pupa	1008,20,1000
+prt_fild08c,0,0	monster	Solid Lunatic	2770,1,180000
+prt_fild08c,0,0	monster	Poring Ringleader	2696,1,180000
+prt_fild08c,0,0	monster	Furious Poring	2697,1,180000
+prt_fild08c,0,0	monster	Elusive Poring	2698,1,180000
+prt_fild08c,0,0	monster	Swift Poring	2699,1,180000
+prt_fild08d,0,0	monster	Poring	1002,27,500
+prt_fild08d,0,0	monster	Lunatic	1063,37,500
+prt_fild08d,0,0	monster	Fabre	1007,37,500
+prt_fild08d,0,0	monster	Little Poring	2398,20,50000
+prt_fild08d,0,0	monster	Pupa	1008,20,1000
+prt_fild08d,0,0	monster	Solid Lunatic	2770,1,180000
+prt_fild08d,0,0	monster	Poring Ringleader	2696,1,180000
+prt_fild08d,0,0	monster	Furious Poring	2697,1,180000
+prt_fild08d,0,0	monster	Elusive Poring	2698,1,180000
+prt_fild08d,0,0	monster	Swift Poring	2699,1,180000
+
 
 //==================================================
 // treasure_n1 - Izlude Sunken Ship 1F

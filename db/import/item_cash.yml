@@ -1,0 +1,125 @@
+# This file is a part of rAthena.
+#   Copyright(C) 2022 rAthena Development Team
+#   https://rathena.org - https://github.com/rathena
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program. If not, see <http://www.gnu.org/licenses/>.
+#
+###########################################################################
+# Item Cash Database
+###########################################################################
+#
+# Item Cash Settings
+#
+###########################################################################
+# - Tab                     Cash shop tab. Available tabs are New, Hot, Limited, Rental, Permanent, Scrolls, Consumables, Other, Sale.
+#   Items:                  List of possible items.
+#     - Item                Item name.
+#       Price               Item cost in cash points (#CASHPOINTS).
+###########################################################################
+
+Header:
+  Type: ITEM_CASH_DB
+  Version: 1
+
+Body:
+  - Tab: Permanent
+    Items:
+      - Item: S_Beginner_Shoes
+        Price: 5
+      - Item: S_Beginner_Shield 
+        Price: 5
+      - Item: S_Rookie_Shoes
+        Price: 5
+      - Item: S_Rookie_Shield
+        Price: 5
+      - Item: S_Advanced_Shoes
+        Price: 5
+      - Item: S_Advanced_Shield
+        Price: 5
+      - Item: EXP_Select_Box
+        Price: 15
+      - Item: C_20th_Anniversary_Hat
+        Price: 5
+      - Item: C_20th_Anniversary_Wing
+        Price: 5
+      - Item: C_Guardian_Butterwing
+        Price: 5
+      - Item: C_Ear_Of_Angel's_Wing 
+        Price: 5
+      - Item: C_Octopus_Leg_In_Mouth
+        Price: 5
+      - Item: Mobile_BeginnerMark
+        Price: 5
+      - Item: Poring_Sunglasses_K
+        Price: 5
+      - Item: Bubblegum_Lower
+        Price: 5
+      - Item: Rune_Suit
+        Price: 5
+      - Item: Union_Guard
+        Price: 5
+      - Item: Mana_Manteau
+        Price: 5
+      - Item: Mana_Boots
+        Price: 5
+      - Item: Rune_Ring
+        Price: 5
+      - Item: Steam_Starter_Ring
+        Price: 5
+  - Tab: Scrolls
+    Items:
+      - Item: Premium_Manual
+        Price: 1
+      - Item: Real_Battle_Manual
+        Price: 1
+      - Item: Job_Manual50_Box
+        Price: 10
+      - Item: Battle_Manual_X3_Box
+        Price: 20
+  - Tab: Consumables
+    Items:
+      - Item: Shadow_Cube
+        Price: 5
+      - Item: Class_Shadow_Cube 
+        Price: 10
+      - Item: Shadow_Scroll
+        Price: 2
+      - Item: Shadow_Scroll2
+        Price: 5
+      - Item: ExShadow_DdukddakBox
+        Price: 2
+      - Item: Refine_Ore_Box
+        Price: 1
+      - Item: HD_Ori_Box10
+        Price: 2
+      - Item: HD_Elu_Box10 
+        Price: 2
+      - Item: F_HD_Carnium_Box10
+        Price: 3
+      - Item: F_HD_Bradium_Box10
+        Price: 3
+      - Item: Shadow_Refine_Hammer
+        Price: 3
+      - Item: Shadow_9_Refine_Hammer
+        Price: 100
+      - Item: Shadow_Random_Mix
+        Price: 5
+  - Tab: Other
+    Items:
+      - Item: Inventory_Ex_Box
+        Price: 1
+      - Item: Inventory_Ex_Dis_10Box
+        Price: 9
+      - Item: CharSlot_Open_Card
+        Price: 2
